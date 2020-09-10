@@ -1,4 +1,5 @@
 import request from '@/utils/request';
+import { underlize } from '@/utils/utils';
 
 export interface LoginParamsType {
   userName: string;
@@ -7,13 +8,22 @@ export interface LoginParamsType {
   captcha: string;
 }
 
-export async function fakeAccountLogin(params: LoginParamsType) {
-  return request('/api/login/account', {
+export async function accountLogin(params: LoginParamsType) {
+  return request('/v1/account/login', {
     method: 'POST',
-    data: params,
+    data: underlize(params),
   });
 }
 
-export async function getFakeCaptcha(mobile: string) {
-  return request(`/api/login/captcha?mobile=${mobile}`);
+export async function getCaptcha(params: any) {
+  return request('/admin/v1/account/mobile_number', {
+    params: underlize(params) || {},
+  });
+}
+
+export async function accountLogout(params: any) {
+  return request('/admin/v1/domain/account/logout', {
+    method: 'POST',
+    data: underlize(params),
+  });
 }

@@ -1,0 +1,180 @@
+
+:global {
+  .SelectModal {
+    .ant-modal-content{
+      border-radius: 10px;
+    }
+    .ant-modal-header{
+      border-radius: 10px 10px 0  0;
+    }
+    .ant-modal-close{
+      display: none;
+    }
+    .ant-form-inline .ant-form-item{
+      margin-right: 0;
+    }
+    .ant-btn-icon-only{
+      border: none;
+      box-shadow:none;
+      height: 30px;
+    }
+    .anticon-plus{
+      color: #5AA6FF;
+      &:hover{
+        color: #40a9ff;
+      }
+    }
+    .ant-modal-body{
+      height: 458px;
+      padding: 16px 20px 0 26px;
+    }
+    .ant-btn-sm{
+      padding: 0 15px;
+      border-radius: 6px;
+    }
+    .ant-input-sm{
+      height: 24px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+    .ant-modal-title{
+      color: rgba(26,68,127,0.95);
+    }
+  }
+
+  .showPicCont{
+    .ant-modal-content{
+      background: none;
+    }
+    .ant-modal-body{
+      background: none;
+    }
+    .ant-modal-close{
+      display: none;
+    }
+  }
+}
+.SelectModal{
+  position: relative;
+}
+
+.modalheader{
+  position: absolute;
+  top:-56px;
+  right:0;
+  width: 245px;
+}
+
+.modalcontent{
+  height: 458px;
+  overflow: hidden;
+
+  .dataList{
+    margin-bottom: 0;
+    
+    li{
+      position: relative;
+      float:left;
+      width: 162px;
+      height: 142px;
+      margin-right: 16px;
+      //border-radius: 10px;
+      cursor: pointer;
+
+      // 图片
+      .imgs{
+        width: 160px;
+        height: 120px;
+        border-radius: 10px;
+        border:1px solid #D2DBE8;
+      }
+
+      .openbtn{
+        position: absolute;
+        width: 176px;
+        bottom: 0px;
+        left:0;
+        height:48px;
+        line-height: 48px;
+        cursor: pointer;
+        //text-align: center;
+        color:rgba(0,0,0,0.45);
+        border-radius: 0 0 4px 4px;
+        background:rgb(247,249,250);
+        border-top:1px solid #E9E9E9;
+        &:hover{
+          color: rgba(16,142,233,1);
+        }
+        .vidContent{
+          padding: 6px 2px;
+          border-radius: 50%;
+          background-color: #9AC3F9;
+        }
+        .vidIcon{
+          font-size: 28px;
+          vertical-align: -0.28em;
+        }
+      }
+      .tac{
+        text-align: center;
+      }
+
+    }
+    .noMar{
+      margin-right:0;
+    }
+    .lis{
+      margin-bottom: 16px;
+    }
+    .mengCeng{
+      position: absolute;
+      top:0;
+      left:0;
+      width: 160px;
+      height: 120px;
+      border-radius: 10px;
+    }
+    .checkedLi{
+      background:linear-gradient(180deg,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 50%);
+    }
+    .selectIcon{
+      position: absolute;
+      top:4px;
+      right:4px;
+      width: 16px;
+      height: 16px;
+    }
+    .details{
+      position: absolute;
+      bottom: 0;
+      left:0;
+      width: 160px;
+      height: 42px;
+      color:transparent;
+      font-size: 12px;
+      line-height: 42px;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+      &:hover{
+        color:rgba(255,255,255,0.95);
+        background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(50,50,50,0.71) 100%);
+      }
+    }
+  }
+}
+
+.showCont{
+  position: relative;
+  padding: 76px 110px;
+  background: 'rgba(255,255,255,0.85)'
+}
+.closeIcon{
+  position: absolute;
+  top:64px;
+  right: 92px;
+  width: 20px;
+  height: 20px;
+  background: #5AA6FF;
+  border: 1px solid #5AA6FF;
+  border-radius: 50%;
+}

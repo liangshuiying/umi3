@@ -1,35 +1,18 @@
 import React from 'react';
-import { Result } from 'antd';
 import check, { IAuthorityType } from './CheckPermissions';
 
-import AuthorizedRoute from './AuthorizedRoute';
-import Secured from './Secured';
-
-interface AuthorizedProps {
+export interface AuthorizedProps {
   authority: IAuthorityType;
   noMatch?: React.ReactNode;
+  notFound?: React.ReactNode;
 }
 
-type IAuthorizedType = React.FunctionComponent<AuthorizedProps> & {
-  Secured: typeof Secured;
-  check: typeof check;
-  AuthorizedRoute: typeof AuthorizedRoute;
-};
-
-const Authorized: React.FunctionComponent<AuthorizedProps> = ({
-  children,
-  authority,
-  noMatch = (
-    <Result
-      status="403"
-      title="403"
-      subTitle="Sorry, you are not authorized to access this page."
-    />
-  ),
-}) => {
+const Authorized: React.FC<AuthorizedProps> = ({ children, authority, noMatch, notFound }) => {
   const childrenRender: React.ReactNode = typeof children === 'undefined' ? null : children;
-  const dom = check(authority, childrenRender, noMatch);
+  // authority：当前路由是否有访问权限：如有，则值为当前路由信息，如没有，则值为undefined；
+  // childrenRender：所有路由集合
+  const dom = check(authority, childrenRender, noMatch, notFound);
   return <>{dom}</>;
 };
 
-export default Authorized as IAuthorizedType;
+export default Authorized;

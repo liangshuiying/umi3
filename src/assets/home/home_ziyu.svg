@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="39px" viewBox="0 0 45 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>home_ziyu</title>
+    <desc>Created with Sketch.</desc>
+    <g id="类型页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="规范" transform="translate(-284.000000, -816.000000)">
+            <g id="home_ziyu" transform="translate(280.000000, 811.000000)">
+                <g id="编组-21" transform="translate(4.000000, 5.000000)">
+                    <rect id="矩形备份-11" fill="#DCEAFF" x="0" y="0" width="28" height="28" rx="4"></rect>
+                    <g id="编组-17" transform="translate(4.000000, 7.000000)">
+                        <rect id="矩形" fill="#2980FF" x="13" y="0" width="14" height="10" rx="2"></rect>
+                        <path d="M5,32 L5,20 C5,17.790861 6.790861,16 9,16 L32,16 C34.209139,16 36,17.790861 36,20 L36,32" id="路径" stroke="#2980FF" stroke-width="2"></path>
+                        <rect id="矩形" stroke="#2980FF" fill="#D8D8D8" x="19.5" y="10.5" width="1" height="12"></rect>
+                        <rect id="矩形备份-14" stroke="#2980FF" stroke-width="1.5" fill="#DCEAFF" x="0.75" y="23.75" width="8.5" height="7.5" rx="2"></rect>
+                        <rect id="矩形备份-15" stroke="#2980FF" stroke-width="1.5" fill="#DCEAFF" x="15.75" y="23.75" width="8.5" height="7.5" rx="2"></rect>
+                        <rect id="矩形备份-16" stroke="#2980FF" stroke-width="1.5" fill="#DCEAFF" x="31.75" y="23.75" width="8.5" height="7.5" rx="2"></rect>
+                    </g>
+                </g>
+                <rect id="矩形备份-17" x="0" y="0" width="50" height="50"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

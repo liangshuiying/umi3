@@ -1,58 +1,24 @@
 import React from 'react';
-import { PageLoading } from '@ant-design/pro-layout';
-import { Redirect, connect, ConnectProps } from 'umi';
-import { stringify } from 'querystring';
-import { ConnectState } from '@/models/connect';
-import { CurrentUser } from '@/models/user';
+import { Redirect } from 'umi';
+import Cookies from 'js-cookie';
 
-interface SecurityLayoutProps extends ConnectProps {
-  loading?: boolean;
-  currentUser?: CurrentUser;
-}
+const SecurityLayout: React.FC<any> = props => {
+  // let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+  // link.type = 'image/x-icon';
+  // link.rel = 'icon';
+  // link.href = '/favicon.png';
+  // document.getElementsByTagName('head')[0].appendChild(link);
 
-interface SecurityLayoutState {
-  isReady: boolean;
-}
-
-class SecurityLayout extends React.Component<SecurityLayoutProps, SecurityLayoutState> {
-  state: SecurityLayoutState = {
-    isReady: false,
-  };
-
-  componentDidMount() {
-    this.setState({
-      isReady: true,
-    });
-    const { dispatch } = this.props;
-    if (dispatch) {
-      dispatch({
-        type: 'user/fetchCurrent',
-      });
-    }
+  const { children } = props;
+  let isLogin = false;
+  if (Cookies.get('currentAuthority') && JSON.parse(Cookies.get('currentAuthority') || '{}').access_token) {
+    isLogin = true;
   }
 
-  render() {
-    const { isReady } = this.state;
-    const { children, loading, currentUser } = this.props;
-    console.log('currentUser============',currentUser)
-    // You can replace it to your authentication rule (such as check token exists)
-    // 你可以把它替换成你自己的登录认证规则（比如判断 token 是否存在）
-    const isLogin = currentUser && currentUser.userid;
-    const queryString = stringify({
-      redirect: window.location.href,
-    });
-
-    if ((!isLogin && loading) || !isReady) {
-      return <PageLoading />;
-    }
-    if (!isLogin && window.location.pathname !== '/user/login') {
-      return <Redirect to={`/user/login?${queryString}`} />;
-    }
-    return children;
+  if (!isLogin) {
+    return <Redirect to={`/users/login`}></Redirect>;
   }
-}
 
-export default connect(({ user, loading }: ConnectState) => ({
-  currentUser: user.currentUser,
-  loading: loading.models.user,
-}))(SecurityLayout);
+  return children;
+};
+export default SecurityLayout;

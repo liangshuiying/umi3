@@ -1,0 +1,198 @@
+{
+  "id": 3687,
+  "dir_id": 9,
+  "name": "user_tag_sxxxxx",
+  "cname": "sxxxxx12232323",
+  "user_name": "150****6500",
+  "user_id": 2453,
+  "create_time": "2020-05-06 15:31:31",
+  "data_type": "STRING",
+  "unit": "DAY",
+  "source_type": 1,
+  "is_routine": true,
+  "status": "PENDING",
+  "comment": "",
+  "cron": "0 0 0 * * ? *",
+  "rule_content_list": [
+    {
+      "value": "分层1",
+      "type": "rules_relation",
+      "relation": "and",
+      "rules": [
+        {
+          "type": "rules_relation",
+          "relation": "and",
+          "rules": [
+            {
+              "measure": {
+                "aggregator": "general",
+                "field": "",
+                "type": "event_measure",
+                "event_name": "$AppEnd"
+              },
+              "type": "event_rule",
+              "time_function": "relative_time",
+              "time_params": ["1 day"],
+              "params": [1],
+              "function": "least",
+              "filters": [
+                {
+                  "type": "filters_relation",
+                  "relation": "and",
+                  "subfilters": [
+                    {
+                      "type": "filter",
+                      "field": "user.first_order_time",
+                      "function": "absolute_between",
+                      "params": ["2020-05-22 16:33", "2020-05-30 16:33"]
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_between",
+                      "params": ["2", "1", "day"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_between",
+                      "params": ["-1", "-1", "day"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_within",
+                      "params": ["1", "day"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_before",
+                      "params": ["1", "day"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_future_within",
+                      "params": ["1", "day"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_future_after",
+                      "params": ["1", "day"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["-1", "0", "second"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["-1", "0", "minute"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["-1", "0", "hour"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["-1", "0", "day"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["0", "1", "second"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["0", "1", "minute"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["day"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["week"],
+                      "type": "filter"
+                    },
+                    {
+                      "field": "user.first_order_time",
+                      "function": "relative_event_time",
+                      "params": ["month"],
+                      "type": "filter"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "comment": ""
+    }
+  ],
+  "failed_partition_count": 0,
+  "last_succeed_partition": {
+    "rule_content_list": [
+      {
+        "value": "分层1",
+        "type": "rules_relation",
+        "relation": "and",
+        "rules": [
+          {
+            "type": "rules_relation",
+            "relation": "and",
+            "rules": [
+              {
+                "measure": {
+                  "aggregator": "general",
+                  "field": "",
+                  "type": "event_measure",
+                  "event_name": "$AppEnd"
+                },
+                "type": "event_rule",
+                "time_function": "relative_time",
+                "time_params": ["1 day"],
+                "params": [1],
+                "function": "least",
+                "filters": [
+                  {
+                    "type": "filter",
+                    "field": "user.first_order_time",
+                    "function": "absolute_between",
+                    "params": ["2020-05-22 16:33", "2020-05-30 16:33"]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "comment": ""
+      }
+    ]
+  },
+  "last_partition_info": {
+    "base_time": "2020-05-06 00:00:00",
+    "start_time": "2020-05-06 15:31:31",
+    "finished_time": "2020-05-06 15:31:31",
+    "user_count": 0,
+    "status": "NEW",
+    "next_partition_base_time": "2020-05-07 00:00:00",
+    "failed_message": {}
+  }
+}

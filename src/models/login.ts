@@ -1,85 +1,111 @@
-import { stringify } from 'querystring';
-import { history, Reducer, Effect } from 'umi';
+import { message } from 'antd';
+import { Effect } from 'dva';
+import { routerRedux } from 'dva/router';
+import Cookies from 'js-cookie';
+import { Reducer } from 'redux';
+import { accountLogin, accountLogout, getCaptcha } from '@/services/login';
+import { reloadAuthorized } from '@/utils/Authorized';
+import { setCookieExpires, camelize } from '@/utils/utils';
+import scrmStore from '@/utils/store';
 
-import { fakeAccountLogin } from '@/services/login';
-import { setAuthority } from '@/utils/authority';
-import { getPageQuery } from '@/utils/utils';
-
-export interface StateType {
-  status?: 'ok' | 'error';
-  type?: string;
-  currentAuthority?: 'user' | 'guest' | 'admin';
+export interface LoginStateType {
+  currentAuthority: 'user' | 'guest' | 'admin';
+  status: number | undefined;
+  type: string;
 }
 
 export interface LoginModelType {
   namespace: string;
-  state: StateType;
+  state: LoginStateType;
   effects: {
     login: Effect;
+    getCaptchas: Effect;
     logout: Effect;
   };
   reducers: {
-    changeLoginStatus: Reducer<StateType>;
+    changeLoginStatus: Reducer<LoginStateType>;
   };
 }
 
 const Model: LoginModelType = {
   namespace: 'login',
-
   state: {
     status: undefined,
+    type: '',
+    currentAuthority: 'user',
   },
-
   effects: {
     *login({ payload }, { call, put }) {
-      const response = yield call(fakeAccountLogin, payload);
-      yield put({
-        type: 'changeLoginStatus',
-        payload: response,
-      });
-      // Login successfully
-      if (response.status === 'ok') {
-        const urlParams = new URL(window.location.href);
-        const params = getPageQuery();
-        let { redirect } = params as { redirect: string };
-        if (redirect) {
-          const redirectUrlParams = new URL(redirect);
-          if (redirectUrlParams.origin === urlParams.origin) {
-            redirect = redirect.substr(urlParams.origin.length);
-            if (redirect.match(/^\/.*#/)) {
-              redirect = redirect.substr(redirect.indexOf('#') + 1);
-            }
-          } else {
-            window.location.href = '/';
-            return;
-          }
-        }
-        history.replace(redirect || '/');
+      let copyData = Object.assign({}, payload);
+      if (payload.autoLogin) {
+        copyData.autoLoginFlag = 1;
+      }
+      delete copyData.autoLogin;
+      delete copyData.type;
+
+      const response = yield call(accountLogin, copyData);
+      if (response.status === 1) {
+        yield put({
+          type: 'user/saveInfo',
+          payload: camelize(response.data),
+        });
+        yield put({
+          type: 'changeLoginStatus',
+          payload: response,
+          isAutoLoginFlag: payload.autoLogin,
+        });
+        yield put(routerRedux.replace('/'));
+      } else {
+        message.error(response.error.message);
       }
     },
 
-    logout() {
-      const { redirect } = getPageQuery();
-      // Note: There may be security issues, please note
-      if (window.location.pathname !== '/user/login' && !redirect) {
-        history.replace({
-          pathname: '/user/login',
-          search: stringify({
-            redirect: window.location.href,
-          }),
+    *getCaptchas({ payload, callback }, { call }) {
+      // console.log(payload);
+      const response = yield call(getCaptcha, payload);
+      if (callback) {
+        callback(response);
+      }
+      return response;
+    },
+
+    *logout({ payload, callback }, { call, put }) {
+      let response = yield call(accountLogout, payload);
+
+      if (response.status === 1 && window.location.pathname !== '/users/login') {
+        Cookies.remove('currentAuthority');
+        scrmStore.remove('USER_INFO');
+        yield put({
+          type: 'global/clearAuthorities',
+          payload: camelize(response.data),
         });
+        yield put(
+          routerRedux.replace({
+            pathname: '/users/login',
+          }),
+        );
+      }
+      if (callback) {
+        callback(response);
       }
     },
   },
-
   reducers: {
-    changeLoginStatus(state, { payload }) {
-      setAuthority(payload.currentAuthority);
+    changeLoginStatus(state, { payload, isAutoLoginFlag }) {
+      if (isAutoLoginFlag) {
+        // 有勾选“自动登录”，设置一天后失效
+        setCookieExpires('currentAuthority', payload.data, 1);
+      } else {
+        Cookies.set('currentAuthority', payload.data);
+      }
+
+      reloadAuthorized();
+
       return {
         ...state,
         status: payload.status,
         type: payload.type,
-      };
+      } as LoginStateType;
     },
   },
 };

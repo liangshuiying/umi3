@@ -1,0 +1,62 @@
+.tag-group-panel {
+  padding-bottom: 30px;
+
+  :global {
+    .ant-tree-switcher.ant-tree-switcher-noop {
+      display: none;
+    }
+  }
+}
+
+.icon-box {
+  // padding-left: 5px;
+  &.active > * {
+    color: #5aa6ff;
+  }
+
+  & > :first-child {
+    display: inline-block;
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  color: rgba(26, 68, 127, 0.65);
+  font-weight: 400;
+  font-size: 14px;
+
+  &.active {
+    color: #5aa6ff;
+  }
+
+  .title {
+    display: inline-block;
+    max-width: 70px;
+    margin: 0;
+    overflow: hidden; //超出的文本隐藏
+    white-space: pre;
+    text-overflow: ellipsis; //溢出用省略号显示
+    // white-space: nowrap; //溢出不换行
+  }
+
+  em {
+    font-style: normal;
+    &.first {
+      color: rgba(26, 68, 127, 0.95);
+      font-weight: 400;
+    }
+  }
+
+  pre {
+    font-family: PingFangSC-Medium, PingFang SC !important;
+    // font-family: normal;
+  }
+}
+
+.title-box {
+  display: flex;
+}

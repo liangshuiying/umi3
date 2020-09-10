@@ -7,17 +7,33 @@
  */
 export default {
   dev: {
-    '/api/': {
-      target: 'https://preview.pro.ant.design',
+    '/admin': {
+      target: '	http://59.110.27.185:20244/', // 测试环境网关地址
+      // target: '	https://facade.01member.com', // 正式环境网关地址
       changeOrigin: true,
-      pathRewrite: { '^': '' },
+      pathRewrite: { '^/admin/': '/admin/' },
+    },
+    '/v1': {
+      target: 'http://10.11.1.7:8181/', //龙虎
+      //target: 'http://10.11.2.2:8181/', //卓程
+      //target: 'http://10.11.1.172:8181/', //博文
+      changeOrigin: true,
+      pathRewrite: { '^/v1': '/v1' },
     },
   },
   test: {
-    '/api/': {
-      target: 'https://preview.pro.ant.design',
+    '/admin': {
+      target: '	http://59.110.27.185:20244/', // 测试环境网关地址
+      // target: '	https://facade.01member.com', // 正式环境网关地址
       changeOrigin: true,
-      pathRewrite: { '^': '' },
+      pathRewrite: { '^/admin/': '/admin/' },
+    },
+    '/v1': {
+      target: 'http://10.11.1.7:8181/', //龙虎
+      //target: 'http://10.11.2.2:8181/', //卓程
+      //target: 'http://10.11.1.172:8181/', //博文
+      changeOrigin: true,
+      pathRewrite: { '^/v1': '/v1' },
     },
   },
   pre: {

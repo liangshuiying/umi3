@@ -1,0 +1,108 @@
+.wrap {
+  padding-top: 15px;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .dashboardTitle {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .dashboardTitleDecorate {
+    width: 2px;
+    height: 15px;
+    margin-left: 0;
+    background: rgba(24, 144, 255, 1);
+  }
+
+  .tipIcon {
+    margin-left: 12px;
+    color: #000;
+    cursor: pointer;
+    opacity: 0.65;
+
+    &:hover {
+      color: #5AA6FF;
+    }
+  }
+
+  .filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .filterDate {
+      width: 340px;
+      border-radius: 6px 0 0 6px;
+    }
+    :global{
+      .ant-select-selector{
+        border-radius: 0 !important;
+      }
+    }
+    .lastSelect {
+      :global{
+        .ant-select-selector{
+          border-radius: 0 6px 6px 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+
+  .action {
+    color: rgba(41, 128, 255, 1);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    cursor: pointer;
+
+    &:hover {
+      color: darken(rgba(41, 128, 255, 1), 0.2)
+    }
+  }
+  :global{
+    .ant-divider-vertical{
+      top:1px !important;
+      border-left:2px solid rgba(0, 0, 0, 0.09);
+    }
+  }
+}
+
+.actionTrigger {
+  margin-left: 16px;
+
+  &:focus {
+    color: rgba(41, 128, 255, 1);
+  }
+
+  // font-size: 24px;
+}
+
+
+.chart {
+  height: 460px;
+
+  :global {
+    .ant-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

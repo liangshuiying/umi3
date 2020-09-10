@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="440px" viewBox="0 0 1440 440" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>register_bg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="152" y="70" width="192" height="393" rx="10"></rect>
+        <rect id="path-2" x="383" y="0" width="283" height="499" rx="10"></rect>
+        <rect id="path-3" x="568" y="50" width="378" height="449" rx="10"></rect>
+        <rect id="path-4" x="740" y="329" width="326" height="341" rx="10"></rect>
+        <rect id="path-5" x="962" y="70" width="238" height="408" rx="10"></rect>
+        <rect id="path-6" x="1125" y="259" width="289" height="298" rx="4"></rect>
+        <rect id="path-7" x="56" y="202" width="192" height="206" rx="10"></rect>
+        <rect id="path-8" x="872" y="189" width="408" height="206" rx="10"></rect>
+        <rect id="path-9" x="0" y="329" width="475" height="296" rx="10"></rect>
+        <rect id="path-10" x="337" y="448" width="275" height="257" rx="10"></rect>
+    </defs>
+    <g id="登录注册页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="注册-1" transform="translate(0.000000, -460.000000)">
+            <g id="register" transform="translate(0.000000, 460.000000)">
+                <rect x="0" y="0" width="1440" height="440"></rect>
+                <g id="背景大图" transform="translate(75.000000, 14.000000)">
+                    <g id="编组-3备份">
+                        <g id="矩形备份-11" opacity="0.66250465">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="168" y="86" width="160" height="361" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="148" y="66" width="200" height="401" rx="10"></rect>
+                        </g>
+                        <g id="矩形备份-13">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="399" y="16" width="251" height="467" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="379" y="-4" width="291" height="507" rx="10"></rect>
+                        </g>
+                        <g id="矩形备份-15" opacity="0.660481771">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="584" y="66" width="346" height="417" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="564" y="46" width="386" height="457" rx="10"></rect>
+                        </g>
+                        <g id="矩形备份-17">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="756" y="345" width="294" height="309" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="736" y="325" width="334" height="349" rx="10"></rect>
+                        </g>
+                        <g id="矩形备份-18" opacity="0.421526228">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="978" y="86" width="206" height="376" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="958" y="66" width="246" height="416" rx="10"></rect>
+                        </g>
+                        <g id="矩形备份-19">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="1141" y="275" width="257" height="266" rx="4"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="1121" y="255" width="297" height="306" rx="4"></rect>
+                        </g>
+                        <g id="矩形备份-12">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="72" y="218" width="160" height="174" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="52" y="198" width="200" height="214" rx="10"></rect>
+                        </g>
+                        <g id="矩形备份-39" opacity="0.466192336">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="888" y="205" width="376" height="174" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="868" y="185" width="416" height="214" rx="10"></rect>
+                        </g>
+                        <g id="矩形备份-20" opacity="0.405250186">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="16" y="345" width="443" height="264" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="8" x="-4" y="325" width="483" height="304" rx="10"></rect>
+                        </g>
+                        <g id="矩形备份-14">
+                            <rect stroke="#D9EAFF" stroke-width="32" stroke-linejoin="square" fill="#C3DDFF" fill-rule="evenodd" x="353" y="464" width="243" height="225" rx="10"></rect>
+                            <rect stroke="#F8FBFF" stroke-width="7" x="333.5" y="444.5" width="282" height="264" rx="10"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

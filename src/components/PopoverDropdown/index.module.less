@@ -1,0 +1,36 @@
+.pop-dropDown {
+  .btn {
+    padding: 0 !important;
+    color: rgba(26, 68, 127, 0.45) !important;
+  }
+  .edit-btn {
+    position: relative;
+    color: #5aa6ff !important;
+    &::after {
+      position: absolute;
+      top: 9px;
+      right: -8px;
+      display: inline-block;
+      width: 2px;
+      height: 14px;
+      background: rgba(0, 0, 0, 0.09);
+      content: '';
+    }
+  }
+  :global {
+    .ant-popover-content {
+      width: 105px;
+      // height: 45px;
+      overflow: hidden;
+      border-radius: 6px !important;
+      box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+    }
+    .ant-popover-inner-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // padding-top: 20px;
+      padding: 6px 16px !important;
+    }
+  }
+}

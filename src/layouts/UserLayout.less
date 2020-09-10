@@ -5,39 +5,96 @@
   flex-direction: column;
   height: 100vh;
   overflow: auto;
-  background: @layout-body-background;
+}
+.contains{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+  background-image: url('../assets/register_bg.svg');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100%;
 }
 
-.lang {
-  width: 100%;
-  height: 40px;
-  line-height: 44px;
-  text-align: right;
-  :global(.ant-dropdown-trigger) {
-    margin-right: 24px;
-  }
+.boxContain{
+  height: 560px;
+  background-image: url('../assets/login.svg');
+  background-repeat: no-repeat;
+  background-position:20% center;
+}
+
+.conBoxs{
+  float: right;
+  width:400px;
+  height: 340px;
+  margin-right: 20%;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 60px;
 }
 
 .content {
   flex: 1;
   padding: 32px 0;
 }
+.loginContent{
+  flex: 1;
+}
+
+.logintop{
+  height: 80px;
+  background-color: #fff;
+  text-align: center;
+}
+.loginheader{
+  padding: 20px 20%;
+}
+.conBox{
+  width: 50%;
+  margin: 0 auto;
+}
+.userBox{
+  padding: 20px 0;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
 
 @media (min-width: @screen-md-min) {
-  .container {
-    background-image: url('https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg');
-    background-repeat: no-repeat;
-    background-position: center 110px;
-    background-size: 100%;
-  }
 
   .content {
     padding: 32px 0 24px;
   }
 }
 
+.aboutUs{
+  height: 490px;
+  background-color: #fff;
+  padding: 40px 20% 0 16%;
+}
+
 .top {
   text-align: center;
+}
+
+.rebind_tits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  color: #1A447F;
+
+  &::after {
+    content: '';
+    width: 140px;
+    height: 1px;
+    background: #d8d8d8;
+  }
+
+  &::after {
+    margin-left: 30px;
+  }
 }
 
 .header {
@@ -46,26 +103,52 @@
   a {
     text-decoration: none;
   }
+  margin: 10px 0 40px;
 }
 
 .logo {
   height: 44px;
-  margin-right: 16px;
+  vertical-align: top;
+}
+
+.logo_login {
+  float: left;
+  height: 24px;
+  margin-top: 10px;
   vertical-align: top;
 }
 
 .title {
   position: relative;
   top: 2px;
-  color: @heading-color;
-  font-weight: 600;
-  font-size: 33px;
-  font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #2980FF;
+  font-weight: 500;
+  font-size:18px;
+
 }
 
 .desc {
   margin-top: 12px;
-  margin-bottom: 40px;
-  color: @text-color-secondary;
-  font-size: @font-size-base;
+  margin-bottom: 54px;
+  color:rgba(0,0,0,0.85);
+  font-size: 14px;
+}
+.regBtn{
+  float:right;
+  padding: 0 16px;
+  color:rgba(0,0,0,0.85);
+  line-height: 40px;
+  height: 40px;
+  border:1px solid rgb(217,217,217);
+  border-radius: 6px;
+  &:hover{
+    color:#2980FF;
+    border:1px solid #2980FF;
+  }
+}
+.footers{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  padding: 24px 50px;
 }

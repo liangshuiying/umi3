@@ -1,0 +1,247 @@
+
+:global {
+  .SearchModal {
+    .ant-modal-content{
+      border-radius: 4px;
+    }
+    .ant-modal-close{
+      display: none;
+    }
+    .ant-form-inline .ant-form-item{
+      margin-right: 0;
+    }
+    .ant-btn-icon-only{
+      border: none;
+      box-shadow:none;
+      height: 30px;
+    }
+    .anticon-plus{
+      color: #5AA6FF;
+      &:hover{
+        color: #40a9ff;
+      }
+    }
+    .ant-modal-body{
+      padding: 24px 10px 24px;
+      height: 380px;
+    }
+    
+  }
+}
+.SearchModal{
+  position: relative;
+}
+//预览
+.prevContent{
+  margin-bottom: 0;
+  width: 270px;
+  height: 20px;
+  position: relative;
+}
+.preview{
+  padding-left:10px;
+  width: 200px;
+  position: absolute;
+  left:60px;
+  top:0;
+  .addelli{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+  }
+}
+.copyUrl{
+  cursor: pointer;
+  color: #5AA6FF;
+  &:hover{
+    color: #40a9ff;
+  }
+}
+.modalheader{
+  position: absolute;
+  height:32px;
+  width: 230px;
+  top:-88px;
+  right:14px;
+  .addbtn{
+    width: 50px;
+    padding:10px 24px 0 0;
+    height: 20px;
+    cursor: pointer;
+    line-height: 1.5;
+    color: #5AA6FF;
+    &:hover{
+      color: #40a9ff;
+    }
+  }
+  .modalform{
+    position: absolute;
+    top:-4px;
+    left:70px;
+    width: 160px;
+  }
+  
+
+  .totalCount{
+    color:rgba(0,0,0,0.45);
+    text-align: right;
+  }
+  .errorNum{
+    color: #F5222D;
+    cursor: pointer;
+  }
+  
+}
+
+.errorContent{
+  border-radius: 4px;
+}
+.error{
+  width: 240px;
+  padding: 8px 0;
+  line-height: 20px;
+}
+.hasBorder{
+  border-bottom: 1px solid rgba(0,0,0,0.09);
+}
+.paddings{
+  padding-bottom:0px;
+}
+
+.modalcontent{
+  position: relative;
+  height: 380px;
+  .prev,.next{
+    position: absolute;
+    top:50%;
+    margin-top: -37px;
+    width: 12px;
+    height: 12px;
+    font-size: 20px;
+  }
+  .prev{
+    left: 0px;
+  }
+  .next{
+    right:6px;
+  }
+  .dataList{
+    padding: 25px 38px 0;
+    height: 278px;
+    li{
+      width: 178px;
+      float: left;
+      height: 134px;
+      margin-right: 10px;
+      border: 1px solid #E9E9E9;
+      box-shadow:0px 2px 8px 0px rgba(171,199,255,0.2);
+      cursor: pointer;
+      position: relative;
+      background-color: #fff;
+      border-radius: 4px;
+
+      // 图片
+      .imgs{
+        width:100%;
+        height: 132px;
+        border-radius: 4px;
+      }
+      .imgs3{
+        width:100%;
+        height: 86px;
+        border-radius: 4px;
+      }
+
+      //文本
+      .texts{
+        height: 132px;
+        padding:16px 16px 10px;
+      }
+      .texts,.arcs{
+        h4{
+          font-size:14px;
+          font-weight:500;
+          color:rgba(0,0,0,0.85);
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow:ellipsis;
+          margin-bottom: 10px; 
+        }
+        &:hover{
+          h4{
+            color: #5AA6FF;
+          }
+          
+        }
+      }
+
+      //文章
+      .arcs{
+        padding:20px 0 10px;
+        .arcimgs{
+          height: 100px;
+          width:100%;
+          padding: 10px 0;
+        }
+      }
+      // 视频
+      .vids{
+        max-width:100%;
+        max-height: 274px;
+        border-radius: 4px;
+      }
+
+      .openbtn{
+        position: absolute;
+        width: 176px;
+        bottom: 0px;
+        left:0;
+        height:48px;
+        line-height: 48px;
+        cursor: pointer;
+        //text-align: center;
+        color:rgba(0,0,0,0.45);
+        border-radius: 0 0 4px 4px;
+        background:rgb(247,249,250);
+        border-top:1px solid #E9E9E9;
+        &:hover{
+          color: rgba(16,142,233,1);
+        }
+        .vidContent{
+          padding: 6px 2px;
+          border-radius: 50%;
+          background-color: #9AC3F9;
+        }
+        .vidIcon{
+          font-size: 28px;
+          vertical-align: -0.28em;
+        }
+      }
+      .tac{
+        text-align: center;
+      }
+      
+    }
+    .checkedLi{
+      border: 1px solid #5AA6FF;
+    }
+
+    .noMar{
+      margin-right:0;
+    }
+    .lis{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.loadingContent{
+  text-align: center;
+  padding: 110px 0 100px;
+  p{
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    line-height: 60px;
+  }
+}

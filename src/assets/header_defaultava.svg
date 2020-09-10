@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>header_defaultava</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="16" cy="16" r="16"></circle>
+    </defs>
+    <g id="类型页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="一级页面" transform="translate(-1368.000000, -14.000000)">
+            <g id="header">
+                <g id="header_defaultava" transform="translate(1368.000000, 14.000000)">
+                    <g>
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="蒙版" fill="#E8E8E8" xlink:href="#path-1"></use>
+                        <path d="M20,18.8333333 C24.418278,18.8333333 28,22.4150553 28,26.8333333 C28,31.2516113 24.418278,34.8333333 20,34.8333333 L12,34.8333333 C7.581722,34.8333333 4,31.2516113 4,26.8333333 C4,22.4150553 7.581722,18.8333333 12,18.8333333 L12.004,18.8333333 L12.0052048,18.8639295 C12.1123373,20.8893473 13.8598966,22.5 16,22.5 C18.1506701,22.5 19.9049101,20.873403 19.996262,18.8338981 L20,18.8333333 Z" id="形状结合" fill="#C5C5C5" mask="url(#mask-2)"></path>
+                        <circle id="椭圆形" fill="#C5C5C5" mask="url(#mask-2)" cx="16" cy="13" r="5"></circle>
+                    </g>
+                    <circle id="蒙版" stroke="#E8E8E8" cx="16" cy="16" r="15.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

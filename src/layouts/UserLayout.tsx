@@ -1,18 +1,16 @@
-import { DefaultFooter, MenuDataItem, getMenuData, getPageTitle } from '@ant-design/pro-layout';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Link, SelectLang, useIntl, ConnectProps, connect } from 'umi';
-import React from 'react';
-import { ConnectState } from '@/models/connect';
-import logo from '../assets/logo.svg';
+import { getTitle } from '@/utils/utils';
+import logo from '../assets/logo-no.svg';
 import styles from './UserLayout.less';
+import { getMenuData, MenuDataItem } from '@ant-design/pro-layout';
+import { Helmet } from 'react-helmet';
+import { Link } from 'umi';
+import React from 'react';
+import { connect } from 'dva';
 
-export interface UserLayoutProps extends Partial<ConnectProps> {
-  breadcrumbNameMap: {
-    [path: string]: MenuDataItem;
-  };
+export interface UserLayoutProps{
+  breadcrumbNameMap: { [path: string]: MenuDataItem };
 }
-
-const UserLayout: React.FC<UserLayoutProps> = (props) => {
+const UserLayout: React.FC<UserLayoutProps> = props => {
   const {
     route = {
       routes: [],
@@ -25,41 +23,34 @@ const UserLayout: React.FC<UserLayoutProps> = (props) => {
       pathname: '',
     },
   } = props;
-  const { formatMessage } = useIntl();
   const { breadcrumb } = getMenuData(routes);
-  const title = getPageTitle({
-    pathname: location.pathname,
-    formatMessage,
-    breadcrumb,
-    ...props,
-  });
+  const title = getTitle(breadcrumb, location.pathname);
   return (
-    <HelmetProvider>
+    <>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={title} />
       </Helmet>
 
-      <div className={styles.container}>
-        <div className={styles.lang}>
-          <SelectLang />
-        </div>
+      <div className={styles.contains}>
         <div className={styles.content}>
           <div className={styles.top}>
             <div className={styles.header}>
               <Link to="/">
                 <img alt="logo" className={styles.logo} src={logo} />
-                <span className={styles.title}>Ant Design</span>
               </Link>
             </div>
-            <div className={styles.desc}>Ant Design 是西湖区最具影响力的 Web 设计规范</div>
           </div>
-          {children}
+          <div className={styles.conBox}>
+            <div className={styles.userBox}>{children}</div>
+          </div>
         </div>
-        <DefaultFooter />
+        <div className={styles.footers}>
+          copyright&nbsp;&nbsp;©2019&nbsp;&nbsp;深圳大地云坞科技有限公司&nbsp;版权所有&nbsp;&nbsp;粤ICP备19023754号-2
+        </div>
       </div>
-    </HelmetProvider>
+    </>
   );
 };
 
-export default connect(({ settings }: ConnectState) => ({ ...settings }))(UserLayout);
+export default connect()(UserLayout);

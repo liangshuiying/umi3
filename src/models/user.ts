@@ -1,82 +1,58 @@
-import { Effect, Reducer } from 'umi';
-
-import { queryCurrent, query as queryUsers } from '@/services/user';
-
-export interface CurrentUser {
-  avatar?: string;
-  name?: string;
-  title?: string;
-  group?: string;
-  signature?: string;
-  tags?: {
-    key: string;
-    label: string;
-  }[];
-  userid?: string;
-  unreadCount?: number;
-}
+import { Effect } from 'dva';
+import { Reducer } from 'redux';
+import scrmStore from '@/utils/store';
 
 export interface UserModelState {
-  currentUser?: CurrentUser;
+  domainId: string | null;
+  accountId: string | null;
+  accountName: string | null;
+  domainName: string | null;
+  accessToken: string | null;
+  portraitUrl: string | null;
+  isvLogo: string | null;
 }
 
 export interface UserModelType {
   namespace: 'user';
   state: UserModelState;
   effects: {
-    fetch: Effect;
-    fetchCurrent: Effect;
+    saveInfo: Effect;
   };
   reducers: {
-    saveCurrentUser: Reducer<UserModelState>;
-    changeNotifyCount: Reducer<UserModelState>;
+    save: Reducer<UserModelState>;
   };
 }
+
+const userInfo = scrmStore.get('USER_INFO');
 
 const UserModel: UserModelType = {
   namespace: 'user',
 
   state: {
-    currentUser: {},
+    domainId: userInfo ? userInfo.domainId : null,
+    accountId: userInfo ? userInfo.accountId : null,
+    accountName: userInfo ? userInfo.accountName : null,
+    domainName: userInfo ? userInfo.domainName : null,
+    accessToken: userInfo ? userInfo.accessToken : null,
+    portraitUrl: userInfo ? userInfo.portraitUrl : null,
+    isvLogo: userInfo ? userInfo.isvLogo : null,
   },
 
   effects: {
-    *fetch(_, { call, put }) {
-      const response = yield call(queryUsers);
+    *saveInfo({ payload }, { put }) {
       yield put({
         type: 'save',
-        payload: response,
+        payload,
       });
-    },
-    *fetchCurrent(_, { call, put }) {
-      const response = yield call(queryCurrent);
-      yield put({
-        type: 'saveCurrentUser',
-        payload: response,
-      });
+      scrmStore.set('USER_INFO', payload);
     },
   },
 
   reducers: {
-    saveCurrentUser(state, action) {
+    save(state, { payload }): UserModelState {
       return {
         ...state,
-        currentUser: action.payload || {},
-      };
-    },
-    changeNotifyCount(
-      state = {
-        currentUser: {},
-      },
-      action,
-    ) {
-      return {
-        ...state,
-        currentUser: {
-          ...state.currentUser,
-          notifyCount: action.payload.totalCount,
-          unreadCount: action.payload.unreadCount,
-        },
+        ...payload,
       };
     },
   },
